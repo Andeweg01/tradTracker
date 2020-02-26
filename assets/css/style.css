@@ -1,0 +1,170 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
+
+div#map {
+	height: 100%;
+	min-height: 360px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*-------------------------------Colours */
+
+.bg-color-map {
+    background-color: #D2E6C6;
+}
+
+.bg-color-info {
+    background-color: #EAF3E3;
+}
+
+/*-------------------------------Special paddings/margins/text */
+
+h1,
+h2,
+h3,
+h4 {
+    margin: 0;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.general-sub {
+    font-family: "Open+Sans", sans-serif;
+    font-weight: 300;
+    color: #fafafa;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.row-table {
+    display: table;
+}
+
+.section-column {
+    display: table-cell;
+    padding: 0;
+    float: none;
+}
+
+
+/*-------------------------------Heading */
+
+
+#nav {
+    margin: 0;
+}
+
+#nav li {
+    font-size: 14px;
+    padding: 0;
+}
+
+.menuitem {
+    height: 120px;
+    text-align: center;
+    padding: 0;
+}
+
+.menuitem a {
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    height: 120px;
+}
+
+.menuitem a i {
+    padding-top: 22px;
+    display: block;
+    color: #fafafa;
+    font-size: 26px;
+}
+
+.menuitem span {
+    display: block;
+    width: 100%;
+    padding-top: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+/*-------------------------------Pub Info */
+
+.pub-info-item {
+    margin-bottom: 20px;
+    display: block;
+    clear: both;
+}
+
+.pub-info-item .key,
+.pub-info-item .value {
+    padding-right: 8px;
+    display: inline-block;
+}
+
+.pub-info-item .key p,
+.pub-info-item .value p {
+    margin: 0;
+}
+
+.pub-info-item .key {
+    width: 30%;
+    margin-right: 21px;
+    padding-top: 2px;
+    vertical-align: top;
+}
+
+.pub-info-item .key p {
+    font-weight: 700;    
+}
+
+.pub-info-item .value {
+    position: relative;
+    width: 60%;
+}
+
+/*-------------------------------Contact Form */
+
+.contact-heading {
+    font-family: "Exo", sans-serif;
+    font-weight: 300;
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.center-form {
+    padding-top: 10px;
+    margin: 0 auto;
+    max-width: 70%;
+}
+
+button[type="submit"] {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    color: #fafafa;
+    background-color: #e84610;
+}
+
+/*-------------------------------Media queries */
+
+@media(min-width: 992px) {
+    .center-form {
+        padding-top: 30px;
+        min-height: 240px;
+        margin: 0 auto;
+        max-width: 50%;
+    }
+}
