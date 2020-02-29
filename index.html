@@ -11,7 +11,6 @@
 </head>
 
 <body>
-<div class="mainHeader">
   <nav class="navbar navbar-light bg-color-info">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
@@ -22,12 +21,13 @@
       </ul>
     </div>
   </nav>
-</div>
-<section class="container-fluid">
+<section class="container-fluid h-100">
   <div class="row">
     <div class="col-md-3 bg-color-info">
-      <div class="row"> <img src="assets/img/TradTrackerHome.png" alt="TradTrackerLogo" class="center img-fluid" style="width:70%; height: 70%;"/> </div>
-      <p>Find me a trad session on:</p>
+      <div class="row">
+		  <img src="assets/img/TradTrackerHome.png" alt="TradTrackerLogo" class="center img-fluid" style="width:70%; height: 70%;"/>
+		</div>
+      <p class="selection">Find me a trad session on:</p>
       <form>
         <select onchange="selectDay(this.value)">
           <optgroup selected label="Select day of the week">
@@ -46,7 +46,7 @@
       </div>
       <div class="pub-info-item">
         <div class="value">
-          <h4>An Spailpin Fanach </h4>
+			<h4 class="pub-name">An Spailpin Fanach</h4>
         </div>
       </div>
       <div class="pub-info-item">
@@ -59,24 +59,27 @@
       </div>
       <div class="pub-info-item">
         <div class="key">
-          <p class="uppercase"> Phone: </p>
+          <p class="uppercase">Phone: </p>
         </div>
         <div class="value">
-          <p> 00353907028790 </p>
+          <p>00353907028790 </p>
         </div>
       </div>
       <div class="pub-info-item">
         <div class="key">
-          <p class="uppercase"> Email: </p>
+          <p class="uppercase">Email: </p>
         </div>
         <div class="value">
-          <p> sascha@designed.irish </p>
+          <p>sascha@designed.irish </p>
         </div>
       </div>
-      <div> <img src="assets/img/AnSpailpinFanach.jpg" alt="AnSpailpinFanach" class="img-thumbnail img-fluid" /> </div>
+      <div>
+		  <img src="assets/img/AnSpailpinFanach.jpg" alt="AnSpailpinFanach" class="img-thumbnail img-fluid" />
+		</div>
     </div>
     <div class="col-md-9 bg-color-map section-column">
-      <div id="map"> </div>
+      <div id="map">
+		</div>
     </div>
   </div>
 </section>
