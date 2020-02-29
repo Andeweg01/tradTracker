@@ -1,100 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Sascha</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
-	<link rel="stylesheet" href="assets/css/style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Sascha</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+<link rel="stylesheet" href="assets/css/style.css" />
 </head>
 
 <body>
-	<section class="container-fluid">
-		<div class="row">
-			<div class="col-md-3 bg-color-info">
-				<div class="row">
-					<img src="assets/img/TradTrackerHome.png" alt="TradTrackerLogo" class="center img-fluid" style="width:70%; height: 70%;"/>
-				</div>
-<form action="https://ptsv2.com/t/9mbjw-1519746391/post" method="post">
-	    <select>
-	      <optgroup selected label="Select day of the week">
-	        <option>Sunday</option>
-	        <option>Monday</option>
-	        <option>Tuesday</option>
-	        <option>Wednesday</option>
-	        <option>Thursday</option>
-	        <option>Friday</option>
-	        <option>Saturday</option>
-	      </optgroup>
-	    </select>
-	    <input type="submit">
-    </form>
-				<p>You can select the day of the week you want to find your session.</p>
-				<div class="pub-info-item">
-					<div class="key">
-						<p class="uppercase">
-                            Venue:
-						</p>
-					</div>
-					<div class="value">
-                        <p>
-                            An Spailpin Fanach
-                        </p>
-                    </div>
-				</div>
-                <div class="pub-info-item">
-					<div class="key">
-						<p class="uppercase">
-                            Address:
-						</p>
-					</div>
-					<div class="value">
-                        <p>
-                          Cork City, co. Cork, Ireland
-                      </p>
-                    </div>
-				</div>
-                <div class="pub-info-item">
-					<div class="key">
-						<p class="uppercase">
-                            Phone:
-						</p>
-					</div>
-					<div class="value">
-                        <p>
-                            00353907028790
-                        </p>
-                    </div>
-				</div>
-                <div class="pub-info-item">
-					<div class="key">
-						<p class="uppercase">
-                            Email:
-						</p>
-					</div>
-					<div class="value">
-                        <p>
-                            sascha@designed.irish
-                        </p>
-                    </div>
-				</div>
-				<div>
-					<img src="assets/img/AnSpailpinFanach.jpg" alt="AnSpailpinFanach" class="img-thumbnail img-fluid" />
-				</div>
-			</div>
-			<div class="col-md-9 bg-color-map section-column"><div id="map">
-				</div>
-			</div>
-		</div>
-	</section>
-	
-	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclustererplus@4.0.1.min.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbyehlGjbQQXrOGtkdVZLtJPsFqVJmJkE&callback=initMap"></script>
-	<script src="assets/js/maps.js"></script>
-
-	</body>
-
+<div class="mainHeader">
+  <nav class="navbar navbar-light bg-color-info">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> </li>
+        <li class="nav-item"> <a class="nav-link" href="form.html">Add my venue</a> </li>
+        <li class="nav-item"> <a class="nav-link disabled" href="about.html">About</a> </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-md-3 bg-color-info">
+      <div class="row"> <img src="assets/img/TradTrackerHome.png" alt="TradTrackerLogo" class="center img-fluid" style="width:70%; height: 70%;"/> </div>
+      <p>Find me a trad session on:</p>
+      <form>
+        <select onchange="selectDay(this.value)">
+          <optgroup selected label="Select day of the week">
+          <option value="Sunday">Sunday</option>
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          </optgroup>
+        </select>
+      </form>
+      <div>
+        <p></p>
+      </div>
+      <div class="pub-info-item">
+        <div class="value">
+          <h4>An Spailpin Fanach </h4>
+        </div>
+      </div>
+      <div class="pub-info-item">
+        <div class="key">
+          <p class="uppercase">Address: </p>
+        </div>
+        <div class="value">
+          <p>Cork City, co. Cork, Ireland </p>
+        </div>
+      </div>
+      <div class="pub-info-item">
+        <div class="key">
+          <p class="uppercase"> Phone: </p>
+        </div>
+        <div class="value">
+          <p> 00353907028790 </p>
+        </div>
+      </div>
+      <div class="pub-info-item">
+        <div class="key">
+          <p class="uppercase"> Email: </p>
+        </div>
+        <div class="value">
+          <p> sascha@designed.irish </p>
+        </div>
+      </div>
+      <div> <img src="assets/img/AnSpailpinFanach.jpg" alt="AnSpailpinFanach" class="img-thumbnail img-fluid" /> </div>
+    </div>
+    <div class="col-md-9 bg-color-map section-column">
+      <div id="map"> </div>
+    </div>
+  </div>
+</section>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclustererplus@4.0.1.min.js"></script> 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbyehlGjbQQXrOGtkdVZLtJPsFqVJmJkE&callback=initMap"></script> 
+<script src="assets/js/maps.js"></script>
+</body>
 </html>

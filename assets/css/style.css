@@ -14,8 +14,16 @@ div#map {
   margin-right: auto;
 }
 
+.mainHeader {
+	position: relative;
+}
+
 /*-------------------------------Colours */
 
+.bg-light {
+  background-color: transparent;
+}
+	
 .bg-color-map {
     background-color: #D2E6C6;
 }
@@ -26,10 +34,16 @@ div#map {
 
 /*-------------------------------Special paddings/margins/text */
 
+p {
+	font-family: "Open+Sans", sans-serif;
+	font-size: 0.85em;
+}
+
 h1,
 h2,
 h3,
 h4 {
+	color: #7E1048;
     margin: 0;
 }
 
@@ -100,6 +114,7 @@ h4 {
     font-weight: 300;
     letter-spacing: 2px;
 }
+
 
 /*-------------------------------Pub Info */
 
