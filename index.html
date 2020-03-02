@@ -34,49 +34,73 @@
 					<img src="assets/img/TradTrackerHome.png" alt="TradTrackerLogo" class="center img-fluid" style="width:60%; height: 60%;"/>
 	  </div>
 					<p class="selection">Find me a trad session on:</p>
-					<form>
-						<select onchange="selectDay(this.value)">
-          <optgroup selected label="Select day of the week">
-          <option value="Sunday">Sunday</option>
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
-          </optgroup>
-        </select>
-					</form>
+					<div id="type-selector" class="pac-controls">
+						<input type="radio" name="type" id="changetype-all" checked="checked">
+						<label for="changetype-all">All days</label><br>
 
-					<div class="pub-info-item">
-						<div class="value">
-							<h4 class="pub-name">An Spailpin Fanach</h4>
-						</div>
-					</div>
-					<div class="pub-info-item">
-						<p><i class="fa fa-map-marker red" aria-hidden="true"></i>
-							27-29 South Main Street Cork City </p>
-						<p><i class="fa fa-phone-square red" aria-hidden="true"></i> +353 21 427 7949 </p>
-						<p><i class="fa fa-envelope red" aria-hidden="true"></i> anspailpinfanac@gmail.com </p>
-					</div>
-					<div>
-						<img src="assets/img/AnSpailpinFanach.jpg" alt="AnSpailpinFanach" class="img-thumbnail img-fluid" />
+						<input type="radio" name="type" id="changetype-establishment">
+						<label for="changetype-saturday">Saturday </label>
+
+						<input type="radio" name="type" id="changetype-geocode">
+						<label for="changetype-sunday"> Sunday</label><br>
+
+						<input type="radio" name="type" id="changetype-address">
+						<label for="changetype-monday">Monday</label><br>
+
+						<input type="radio" name="type" id="changetype-geocode">
+						<label for="changetype-tuesday">Tuesday</label><br>
+
+						<input type="radio" name="type" id="changetype-geocode">
+						<label for="changetype-wednesday">Wednesday</label><br>
+
+						<input type="radio" name="type" id="changetype-geocode">
+						<label for="changetype-thursday">Thursday</label><br>
+
+						<input type="radio" name="type" id="changetype-geocode">
+						<label for="changetype-friday">Friday</label><br>
+    </div>
+						<p class="selection">Or search location:</p>
+						<div id="pac-container">
+							<input id="pac-input" type="text" placeholder="Enter a location">
+  </div>
+							<div id="infowindow-content">
+								<img src="#" width="16" height="16" id="place-icon">
+								<span id="place-name"  class="title"></span><br>
+								<span id="place-address"></span>
+							</div>
+							<div class="pub-info-item">
+								<h4 class="pub-name">An Spailpin Fanac</h4>
+							</div>
+							<div class="pub-info-item">
+								<p class="pub-address"><i class="fa fa-map-marker red" aria-hidden="true"></i>
+									27-29 South Main Street Cork City </p>
+								<p class="pub-phone"><i class="fa fa-phone-square red" aria-hidden="true"></i> +353 21
+									427 7949 </p>
+								<p class="pub-email"><i class="fa fa-envelope red" aria-hidden="true"></i>
+									anspailpinfanac@gmail.com </p>
+							</div>
+							<div class="pub-image">
+								<img src="assets/img/AnSpailpinFanach.jpg" alt="AnSpailpinFanach" class="img-thumbnail img-fluid" />
 	  </div>
-						<div class="pub-info-item">
-							<p>A character-filled pub in the heart of the city with a warm, Irish atmosphere. Visitors
-								can enjoy traditional music nightly and the Cork Singer’s Club on Sunday evenings.
-								There’s always a bit of great craic in store as well. Food is served Monday through
-								Friday between noon and 3pm.</p>
+								<div class="pub-info">
+									<p>A character-filled pub in the heart of the city with a warm, Irish atmosphere.
+										Visitors can enjoy traditional music nightly and the Cork Singer’s Club on
+										Sunday evenings. There’s always a bit of great craic in store as well. Food is
+										served Monday through Friday between noon and 3pm.</p>
+								</div>
+							</div>
+							<div class="col-md-9 bg-color-map section-column">
+								<div id="map">
+								</div>
+							</div>
 						</div>
-					</div>
-					<div class="col-md-9 bg-color-map section-column">
-						<div id="map">
-						</div>
-					</div>
-				</div>
 	</section>
+
 	<script
 		src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclustererplus@4.0.1.min.js">
+	</script>
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbyehlGjbQQXrOGtkdVZLtJPsFqVJmJkE&libraries=places">
 	</script>
 	<script async defer
 		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbyehlGjbQQXrOGtkdVZLtJPsFqVJmJkE&callback=initMap">
