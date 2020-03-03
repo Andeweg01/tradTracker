@@ -1,21 +1,24 @@
 // JavaScript Document
 
+
+
 function initMap() {
         var map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 3,
+            zoom: 9,
             center: {
-                lat: 46.619261,
-                lng: -33.134766
+                lat: 51.967125,
+                lng: -8.933958
             }
         });
         var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         var locations = [
-            { lat: 40.785091, lng: -73.968285 },
-            { lat: 41.084045, lng: -73.874245 },
-            { lat: 40.754932, lng: -73.984016 }
-        ];
-
+ 			{ lat: 51.896602, lng: -8.476551 },
+			{ lat: 51.623023, lng: -8.888975 },
+			{ lat: 52.137655, lng: -8.278949 },
+			{ lat: 51.901723, lng: -8.471071 }
+		];
+	
         var markers = locations.map(function(location, i){
             return new google.maps.Marker({
                 position: location,
@@ -28,35 +31,50 @@ function initMap() {
 
     }
 
-    /*
-    // JavaScript Document
+		let pubs = [{
+			coords: { 
+				lat: 51.896602,
+				lng: -8.476551 
+			},
+			name: 'An Spailpin Fanach',
+			address: '27-29 South Main Street Cork City',
+			description: 'A character-filled pub in the heart of the city with a warm, Irish atmosphere. Visitors can enjoy traditional music nightly and the Cork Singer’s Club on Sunday evenings. There’s always a bit of great craic in store as well. Food is served Monday through Friday between noon and 3pm.',
+			image: 'http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg',
+			days: ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+		},
+	{
+			coords: {
+				lat: 51.623023,
+				lng: -8.888975
+			},
+			name: 'DeBarras Folk Club',
+			address: '55 Pearse St, Scartagh, Clonakilty',
+			description: 'In the last 30 year’s DeBarra’s Folk Club in the beautiful sea-side town of Clonakilty has earned a musical reputation that has traveled far beyond the confines of its West Cork location.',
+			image: '',
+			days: ["","Monday","","","","",""]
+		},		
+	{
+			coords: {
+				lat: 52.137655,
+				lng: -8.278949
+			},
+			name: 'Cheers Bar',
+			address: '81 McCurtain St, Fermoy',
+			description: 'live music, live sport on 6 screens, welcoming staff and mighty pints',
+			image: '',
+			days: ["","Monday","","","","",""]
+		},		
+	{
+			coords: {
+				lat: 51.901723,
+				lng: -8.471071
+			},
+			name: 'Sin E',
+			address: '81 McCurtain St, Fermoy',
+			description: 'live music, live sport on 6 screens, welcoming staff and mighty pints',
+			image: '',
+			days: ["","Monday","","","","",""]
+		},		
+	];
 
-var locations = [
-     ['An Spailpin Fanach', 3.180967,101.715546, 1],
-     ['Title B', 3.200848,101.616669, 2],
-     ['Title C', 3.147372,101.597443, 3],
-     ['Title D', 3.19125,101.710052, 4]
-];
-var map = new google.maps.Map(document.getElementById('map'), {
-     zoom: 8,
-     center: new google.maps.LatLng(51.967125,-8.933958),
-});
 
-var infowindow = new google.maps.InfoWindow;
-
-var marker, i;
-
-for (i = 0; i < locations.length; i++) {  
-    marker = new google.maps.Marker({
-         position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-         map: map
-    });
-
-    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-         return function() {
-             infowindow.setContent(locations[i][0]);
-             infowindow.open(map, marker);
-         }
-    })(marker, i));
-}
-*/
