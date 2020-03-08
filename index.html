@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +8,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
 <link rel="stylesheet" href="assets/css/style.css" />
+<script type="text/javascript" src="pubs.json"></script>
 </head>
 
 <body>
@@ -31,46 +31,37 @@
       <div class="row">
 		  <img src="assets/img/TradTrackerHome.png" alt="TradTrackerLogo" class="center img-fluid" style="width:60%; height: 60%;"/>
 	  </div>
-      <p class="selection">There is nothing like being there: Irish tradional music sessions! From now on you know exactly where to go to find one. Starting with county Cork we want to present all the locations for regular sessions. <br>
+      <p class="selection">There is nothing like mixing with the locals and enjoying live Irish tradional music! TradTracker.com shows you where to find the sessions. Starting with county Cork we want to present to you all the locations with regular trad sessions. <br>
 		  <br>
 		  Find me a trad session on:</p>
-            <div id="type-selector" class="pac-controls">
-      <input type="radio" name="type" id="changetype-all" checked="checked">
-      <label for="changetype-all">All days</label><br>
+            <div id="days-container" class="days-controls">
+      <input type="radio" name="day" value="0" id="day-all" checked="checked" onclick="myredraw(this)">
+      <label for="day-all">All days</label><br>
 
-      <input type="radio" name="type" id="changetype-establishment">
-      <label for="changetype-saturday">Saturday </label>
+      <input type="radio" name="day" value="1" id="day-saturday" onclick="myredraw(this)">
+      <label for="day-saturday">Saturday </label>
 
-      <input type="radio" name="type" id="changetype-geocode">
-      <label for="changetype-sunday"> Sunday</label><br>
+      <input type="radio" name="day" value="2" id="day-sunday">
+      <label for="day-sunday"> Sunday</label><br>
 
-      <input type="radio" name="type" id="changetype-address">
-      <label for="changetype-monday">Monday</label><br>
+      <input type="radio" name="day" value="3" id="day-monday" onclick="myredraw(this)">
+      <label for="day-monday">Monday</label><br>
 
-      <input type="radio" name="type" id="changetype-geocde">
-      <label for="changetype-tuesday">Tuesday</label><br>
+      <input type="radio" name="day" value="4" id="day-tuesday" onclick="myredraw(this)">
+      <label for="day-tuesday">Tuesday</label><br>
 
-      <input type="radio" name="type" id="changetype-geocoe">
-      <label for="changetype-wednesday">Wednesday</label><br>
+      <input type="radio" name="day" value="5" id="day-wednesday" onclick="myredraw(this)">
+      <label for="day-wednesday">Wednesday</label><br>
 
-      <input type="radio" name="type" id="changetype-gocode">
-      <label for="changetype-thursday">Thursday</label><br>
+      <input type="radio" name="day" value="6" id="day-thursday" onclick="myredraw(this)">
+      <label for="day-thursday">Thursday</label><br>
 
-      <input type="radio" name="type" id="changetype-gecoe">
-      <label for="changetype-friday">Friday</label><br>
+      <input type="radio" name="day" value="7" id="day-friday" onclick="myredraw(this)">
+      <label for="day-friday">Friday</label><br>
     </div>
-<p class="selection">Or search location:</p>
-		<div id="pac-container">
-    <input id="pac-input" type="text"
-        placeholder="Enter a location">
-  </div>
-		<div id="infowindow-content">
-  <img src="#" width="16" height="16" id="place-icon">
-  <span id="place-name"  class="title"></span><br>
-  <span id="place-address"></span>
-</div>
-      <div class="pub-info-item">
-		  <h4 class="pub-name">An Spailpin Fanach</h4>
+      <div class="pubInfo">
+		<div class="pub-info-item">
+		  <h4 class="pub-name">Name</h4>
       </div>
       <div class="pub-info-item">
         <p class="pub-address"><i class="fa fa-map-marker red" aria-hidden="true"></i> 
@@ -82,8 +73,9 @@
 		  <img src="assets/img/AnSpailpinFanach.jpg" alt="AnSpailpinFanach" class="img-thumbnail img-fluid" />
 	  </div>
 		<div class="pub-info">
-		<p>A character-filled pub in the heart of the city with a warm, Irish atmosphere. Visitors can enjoy traditional music nightly and the Cork Singer’s Club on Sunday evenings. There’s always a bit of great craic in store as well. Food is served Monday through Friday between noon and 3pm.</p></div>
+		<p>text</p></div>
     </div>
+</div>
     <div class="col-md-9 bg-color-map section-column">
       <div id="map">
 		</div>
@@ -94,10 +86,10 @@
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbyehlGjbQQXrOGtkdVZLtJPsFqVJmJkE&libraries=places"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbyehlGjbQQXrOGtkdVZLtJPsFqVJmJkE&callback=initMap"></script> 
 <script src="assets/js/maps.js"></script>
+<script src="assets/js/refreshlib.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/8ccbaa0e54.js" crossorigin="anonymous"></script>
 </body>
-
 </html>
