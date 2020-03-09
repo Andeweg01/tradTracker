@@ -1,5 +1,7 @@
 // JavaScript Document
 
+var myJsonArray = JSON.parse('http://tradtracker.com/assets.js/pubs.json');
+
 function initMap() {
         var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 9,
@@ -33,7 +35,7 @@ function initMap() {
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        /* document.getElementById("map").innerHTML = this.responseText; */
+        document.getElementById("map").innerHTML = this.responseText;
         var myJsonArray = JSON.parse(this.responseText);
         var a0 = myJsonArray.a0;
     }
@@ -48,6 +50,16 @@ function init() {
   });
 }
 
+/* var locations = [];
+
+var arrayLength = myJsonArray.length;
+for (var i=0; i < arrayLength; i++) {
+	var daysArray = myJasonArray[i].pubDays;
+};
+if (daysArray[0] > "") {
+	location[] = myJsonArray[i].pubCoord;
+};
+*/ 
 
 /* 
 function selectPub() {
@@ -127,7 +139,7 @@ function myredraw(myJsonArray) {
  }
 
  
-/*  // map div is obtained from 
+ // map div is obtained from 
     var map = new google.maps.Map(document.getElementById('map'), {
        zoom: 9,
        center: myLatLng
@@ -139,4 +151,3 @@ function myredraw(myJsonArray) {
      })
 }
 
-*/
