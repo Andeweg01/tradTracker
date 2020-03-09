@@ -40,7 +40,7 @@ xhttp.onreadystatechange = function() {
         var a0 = myJsonArray.a0;
     }
 };
-xhttp.open("GET", "https://tradtracker.com/assets/js/pubs.json", true);
+xhttp.open("GET", "http://tradtracker.com/assets/js/pubs.json", true);
 xhttp.send();
 
 function init() {
