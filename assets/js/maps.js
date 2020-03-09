@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var myJsonArray = JSON.parse('http://tradtracker.com/assets.js/pubs.json');
+var myJsonArrayFromFile = JSON.parse('http://tradtracker.com/assets.js/pubs.json');
 
 function initMap() {
         var map = new google.maps.Map(document.getElementById("map"), {
@@ -50,17 +50,19 @@ function init() {
   });
 }
 
-/* var locations = [];
+var pubLocations = [];
 
-var arrayLength = myJsonArray.length;
-for (var i=0; i < arrayLength; i++) {
+var myJsonArray = myJsonArrayFromFile.length;
+for (var i=0; i<arrayLength; i++) {
 	var daysArray = myJasonArray[i].pubDays;
 };
-if (daysArray[0] > "") {
-	location[] = myJsonArray[i].pubCoord;
-};
-*/ 
 
+/*
+var daysArray = myJsonArrayFromFile[i].pubDays;
+if (daysArray[0] > "") {
+	pubLocations[] = myJsonArray[i].pubCoord;
+};
+*/
 /* 
 function selectPub() {
     switch (document.getElementById("day-all").value) {
@@ -97,7 +99,7 @@ places.getDetails({ placeId: marker.placeResult.place_id },
 
 */
 
-function myredraw(myJsonArray) {
+function myredraw(myJsonArrayFromFile) {
   
  // Get array of input objects named 'day'
  var radios = document.getElementsByName('day');
