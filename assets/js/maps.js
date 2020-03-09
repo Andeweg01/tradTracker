@@ -1,9 +1,5 @@
 // JavaScript Document
 
-var myJasonArrayFromFile = JSON.parse(myJsonArray);
-
-
-
 function initMap() {
         var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 9,
@@ -42,18 +38,16 @@ xhttp.onreadystatechange = function() {
         var a0 = myJsonArray.a0;
     }
 };
-xhttp.open("GET", "http://tradtracker.com/assets/js/pubs.json", true);
+xhttp.open("GET", "https://tradtracker.com/assets/js/pubs.json", true);
 xhttp.send();
 
 function init() {
   loadJSON(function(response) {
     // Parse JSON string into object
-    var pub_JSON = JSON.parse(response);
-    console.log(pub_JSON);
+    var myJasonArrayFromFile = JSON.parse(response);
   });
 }
 
-    console.log(pub_JSON);
 
 /* 
 function selectPub() {
@@ -133,7 +127,7 @@ function myredraw(myJsonArray) {
  }
 
  
- // map div is obtained from 
+/*  // map div is obtained from 
     var map = new google.maps.Map(document.getElementById('map'), {
        zoom: 9,
        center: myLatLng
@@ -145,3 +139,4 @@ function myredraw(myJsonArray) {
      })
 }
 
+*/
