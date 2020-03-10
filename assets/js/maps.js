@@ -1,86 +1,98 @@
 // JavaScript Document
 
-var dummyLocations = [{
-  "pubCoords": {
-		  "lat": 51.896597,
-		  "lng": -8.476546
-	  },
-  "pubName": "An Spailpin Fanach",
-  "pubAddress": "27-29 South Main Street, Cork City",
-  "pubDescribe": "A character-filled pub in the heart of the city with a warm, Irish atmosphere. Visitors can enjoy traditional music nightly and the Cork Singer’s Club on Sunday evenings. There’s always a bit of great craic in store as well. Food is served Monday through Friday between noon and 3pm.",
-  "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
-  "pubDays": [
+var hardcodeLocations = [{
+    "pubCoords": {
+        "lat": 51.896597,
+        "lng": -8.476546
+    },
+    "pubName": "An Spailpin Fanach",
+    "pubAddress": "27-29 South Main Street, Cork City",
+    "pubDescribe": "A character-filled pub in the heart of the city with a warm, Irish atmosphere. Visitors can enjoy traditional music nightly and the Cork Singer’s Club on Sunday evenings. There’s always a bit of great craic in store as well. Food is served Monday through Friday between noon and 3pm.",
+    "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
+    "pubDays": [
         "All days",
         "Sunday",
         "Monday",
-	  	"Tuesday",
-	  	"Wednesday",
-	  	"Thursday",
-	  	"Friday",
-	  	"Saturday"
-      ]
-    },
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ]
+},
 {
-  "pubCoords": {
-		  "lat": 51.623023,
-		  "lng": -8.888975
-	  },
-  "pubName": "DeBarras Folk Club",
-  "pubAddress": "55 Pearse St, Scartagh, Clonakilty",
-  "pubDescribe": "In the last 30 year’s DeBarra’s Folk Club in the beautiful sea-side town of Clonakilty has earned a musical reputation that has traveled far beyond the confines of its West Cork location.",
-  "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
-  "pubDays": [
+    "pubCoords": {
+        "lat": 51.623023,
+        "lng": -8.888975
+    },
+    "pubName": "DeBarras Folk Club",
+    "pubAddress": "55 Pearse St, Scartagh, Clonakilty",
+    "pubDescribe": "In the last 30 year’s DeBarra’s Folk Club in the beautiful sea-side town of Clonakilty has earned a musical reputation that has traveled far beyond the confines of its West Cork location.",
+    "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
+    "pubDays": [
         "",
         "",
         "Monday",
-	  	"",
-	  	"",
-	  	"Thursday",
-	  	"",
-	  	""
-      ]
-    },
+        "",
+        "",
+        "Thursday",
+        "",
+        ""
+    ]
+},
 {
-  "pubCoords": {
-		  "lat": 52.137655,
-		  "lng": -8.278949
-	  },
-  "pubName": "Cheers Bar",
-  "pubAddress": "81 McCurtain St, Fermoy",
-  "pubDescribe": "live music, live sport on 6 screens, welcoming staff and mighty pints",
-  "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
-  "pubDays": [
+    "pubCoords": {
+        "lat": 52.137655,
+        "lng": -8.278949
+    },
+    "pubName": "Cheers Bar",
+    "pubAddress": "81 McCurtain St, Fermoy",
+    "pubDescribe": "live music, live sport on 6 screens, welcoming staff and mighty pints",
+    "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
+    "pubDays": [
         "",
         "",
         "Monday",
-	  	"",
-	  	"",
-	  	"",
-	  	"",
-	  	""
-      ]
-    },
+        "",
+        "",
+        "",
+        "",
+        ""
+    ]
+},
 {
-  "pubCoords": {
-		  "lat": 51.901743,
-		  "lng": -8.471050
-	  },
-  "pubName": "Sin é",
-  "pubAddress": "8 Coburg St, Victorian Quarter, Cork",
-  "pubDescribe": "The long-established home of Irish traditional music in Cork city, the Irish words ‘Sin é’ literally translate to mean ‘That’s it’, in reference to the funeral parlour located next door. Non-stop traditional music 7 days a week from 6 – close Monday – Saturday, and from 5 on Sunday.",
-  "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
-  "pubDays": [
+    "pubCoords": {
+        "lat": 51.901743,
+        "lng": -8.471050
+    },
+    "pubName": "Sin é",
+    "pubAddress": "8 Coburg St, Victorian Quarter, Cork",
+    "pubDescribe": "The long-established home of Irish traditional music in Cork city, the Irish words ‘Sin é’ literally translate to mean ‘That’s it’, in reference to the funeral parlour located next door. Non-stop traditional music 7 days a week from 6 – close Monday – Saturday, and from 5 on Sunday.",
+    "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
+    "pubDays": [
         "All days",
         "Sunday",
         "Monday",
-	  	"Tuesday",
-	  	"Wednesday",
-	  	"Thursday",
-	  	"Friday",
-	  	"Saturday"
-      ]
-    }];
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+    ]
+}];
 
+// storing the hard coded json data
+var hardcodeLocation=[];
+var arrayLength = hardcodeLocations.length;
+for (var i = 0; i < arrayLength; i++) {
+	for (var j = 0; j < arrayLength; j++) {
+    console.log(hardcodeLocations[i,j]);
+    document.getElementById("demo").innerHTML = hardcodeLocation; 
+	}
+}
+
+
+// keeping the initMap for later to use in the radiobutton myRedraw function
 function initMap() {
         var map = new google.maps.Map(document.getElementById("map"), {
             zoom: 9,
@@ -114,33 +126,22 @@ function initMap() {
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("map").innerHTML = this.responseText;
-        var myJsonArray = JSON.parse(this.responseText);
-        var a0 = myJsonArray.a0;
+        document.getElementById("demo").innerHTML = this.responseText;
+        var obj1 = JSON.parse(this.responseText);
+        var a0 = obj1.a0;
     }
 };
 xhttp.open("GET", "http://tradtracker.com/assets/js/pubs.json", true);
 xhttp.send();
 
-function init() {
+
+/* function init() {
   loadJSON(function(response) {
     // Parse JSON string into object
-    var myJasonArrayFromFile = JSON.parse(response);
+    var pub_JSON = JSON.parse(response);
+    console.log(pub_JSON);
   });
 }
-
-var pubLocations = [];
-
-var myJsonArray = myJsonArrayFromFile.length;
-for (var i=0; i<arrayLength; i++) {
-	var daysArray = myJasonArray[i].pubDays;
-};
-
-/*
-var daysArray = myJsonArrayFromFile[i].pubDays;
-if (daysArray[0] > "") {
-	pubLocations[] = myJsonArray[i].pubCoord;
-};
 */
 
 /* 
@@ -168,18 +169,11 @@ function selectPub() {
     }
 }
 
-places.getDetails({ placeId: marker.placeResult.place_id },
-        function(place, status) {
-            if (status !== google.maps.places.PlacesServiceStatus.OK) {
-                return;
-            }
-            infoWindow.open(map, marker);
-            buildIWContent(place);
-        });
-
 */
 
-function myredraw(myJsonArrayFromFile) {
+function myredraw() {
+	
+ var dayLocations = [];
   
  // Get array of input objects named 'day'
  var radios = document.getElementsByName('day');
@@ -201,23 +195,23 @@ function myredraw(myJsonArrayFromFile) {
  // different coordinates.
  
  if (radio_value == 0) {
-  console.log(radio_value);
+  var myLatLng = {lat: 51.967125, lng: -8.476551};
  } else if (radio_value == 1) {
-  console.log(radio_value);
+  var myLatLng = {lat: 51.967125, lng: -8.476551};
  } else if (radio_value == 2) {
-  console.log(radio_value);
+  var myLatLng = {lat: 51.967125, lng: -8.476551};
  } else if (radio_value == 3) {
-  var my  console.log(radio_value);
+  var myLatLng = {lat: 51.967125, lng: -8.476551};
  } else if (radio_value == 4) {
-  console.log(radio_value);
+  var myLatLng = {lat: 51.967125, lng: -8.476551};
  } else if (radio_value == 5) {
-  console.log(radio_value);
+  var myLatLng = {lat: 51.967125, lng: -8.476551};
  } else if (radio_value == 6) {
-  console.log(radio_value);
+  var myLatLng = {lat: 51.967125, lng: -8.476551};
  } else if (radio_value == 7) {
-  console.log(radio_value);
+  var myLatLng = {lat: 51.967125, lng: -8.476551};
  } else {
-  console.log(radio_value);
+  var myLatLng = {lat: 51.967125, lng: -8.476551};
  }
 
  
@@ -232,4 +226,19 @@ function myredraw(myJsonArrayFromFile) {
         map: map
      })
 }
+
+
+// returning pubs targeting the sub array pubDays
+var getPubsByDay = function(hardcodeLocation, pubDays) {
+	var returnKey = -1;
+	
+	$.each(hardcodeLocation, function(key, info) {
+		if(info.pubDays == pubDays) {
+			returnKey = key;
+			return false;
+		};
+	});
+}
+
+console.log(getPubsByDay(hardcodeLocation, 'All days'));
 
