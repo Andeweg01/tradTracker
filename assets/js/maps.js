@@ -1,5 +1,5 @@
 // JavaScript Document
-
+/*
 var hardcodeLocations = [{
     "pubCoords": {
         "lat": 51.896597,
@@ -81,18 +81,7 @@ var hardcodeLocations = [{
     ]
 }];
 
-
-// storing the hard coded json data in new array
-
-var text1 = "";
-var hardcodeLocation=[];
-var arrayLength = hardcodeLocations.length;
-for (var i = 0; i < arrayLength; i++) {
-	for (var j = 0; j < arrayLength; j++) {
-    console.log(hardcodeLocations[i][j]);
-    document.getElementById("demo").innerHTML = text1;
-	}
-}
+*/
 
 
 // keeping the initMap for later to use in the radiobutton myRedraw function
@@ -125,20 +114,30 @@ function initMap() {
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
 
     }
+var allPubs;
 
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo2").innerHTML = this.responseText;
-        var obj1 = JSON.parse(this.responseText);
-        var a0 = obj1.a0;
-        	console.log(a0);
-
+       // document.getElementById("demo").innerHTML = this.responseText;
+        var allPubs = JSON.parse(this.responseText);
     }
 };
+
 xhttp.open("GET", "../assets/js/pubs.json", true);
 xhttp.send();
 
+var text1 = "";
+var i;
+var j;
+var pubLocation=[];
+var arrayLength = allPubs.length;
+for (var i = 0; i < arrayLength; i++) {
+	for (var j = 0; j < arrayLength; j++) {
+    console.log(pubLocation[i][j]);
+    document.getElementById("demo").innerHTML = pubLocation;
+	}
+}
 
 /* keeping this function for later use with external json file
 
@@ -277,7 +276,7 @@ function myredraw() {
      });
 }
 
-
+/*
 // returning pubs targeting the sub array pubDays
 var getPubsByDay = function(hardcodeLocation, pubDays) {
 	var returnKey = -1;
@@ -289,8 +288,8 @@ var getPubsByDay = function(hardcodeLocation, pubDays) {
 		}
 	});
 };
-
-
+*/
+/*
 console.log(getPubsByDay(hardcodeLocation, 'All days'));
 
-
+*/
