@@ -82,14 +82,14 @@ var hardcodeLocations = [{
 }];
 
 
-// storing the hard coded json data
+// storing the hard coded json data in new array
 var text1 = "";
 var hardcodeLocation=[];
 var arrayLength = hardcodeLocations.length;
 for (var i = 0; i < arrayLength; i++) {
 	for (var j = 0; j < arrayLength; j++) {
-    console.log(hardcodeLocations[i,j]);
-    document.getElementById("demo").innerHTML = text1;
+    console.log(hardcodeLocations[i][j]);
+    document.getElementById("demo").innerHTML = hardcodeLocation;
 	}
 	console.log(text1);
 }
@@ -132,8 +132,9 @@ xhttp.onreadystatechange = function() {
         document.getElementById("demo").innerHTML = this.responseText;
         var obj1 = JSON.parse(this.responseText);
         var a0 = obj1.a0;
+        	console.log(a0);
+
     }
-	console.log(a0);
 };
 xhttp.open("GET", "http://tradtracker.com/assets/js/pubs.json", true);
 xhttp.send();
@@ -243,21 +244,21 @@ function myredraw() {
  // In this case a Google Maps LatLng element is created with 
  // different coordinates.
  
- if (radio_value == 0) {
+ if (radio_value === 0) {
   var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value == 1) {
+ } else if (radio_value === 1) {
   var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value == 2) {
+ } else if (radio_value === 2) {
   var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value == 3) {
+ } else if (radio_value === 3) {
   var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value == 4) {
+ } else if (radio_value === 4) {
   var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value == 5) {
+ } else if (radio_value === 5) {
   var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value == 6) {
+ } else if (radio_value === 6) {
   var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value == 7) {
+ } else if (radio_value === 7) {
   var myLatLng = {lat: 51.967125, lng: -8.476551};
  } else {
   var myLatLng = {lat: 51.967125, lng: -8.476551};
@@ -273,7 +274,7 @@ function myredraw() {
      var marker = new google.maps.Marker({
         position: myLatLng,
         map: map
-     })
+     });
 }
 
 
@@ -285,9 +286,9 @@ var getPubsByDay = function(hardcodeLocation, pubDays) {
 		if(info.pubDays == pubDays) {
 			returnKey = key;
 			return false;
-		};
+		}
 	});
-}
+};
 
 console.log(getPubsByDay(hardcodeLocation, 'All days'));
 
