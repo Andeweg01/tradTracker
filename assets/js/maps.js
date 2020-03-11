@@ -136,7 +136,7 @@ xhttp.onreadystatechange = function() {
 
     }
 };
-xhttp.open("GET", "http://tradtracker.com/assets/js/pubs.json", true);
+xhttp.open("GET", "../assets/js/pubs.json", true);
 xhttp.send();
 
 
@@ -277,7 +277,7 @@ function myredraw() {
      });
 }
 
-/*
+
 // returning pubs targeting the sub array pubDays
 var getPubsByDay = function(hardcodeLocation, pubDays) {
 	var returnKey = -1;
@@ -289,8 +289,8 @@ var getPubsByDay = function(hardcodeLocation, pubDays) {
 		}
 	});
 };
-*/
-/*
+
+
 console.log(getPubsByDay(hardcodeLocation, 'All days'));
 
-*/
+
