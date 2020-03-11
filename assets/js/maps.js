@@ -83,15 +83,15 @@ var hardcodeLocations = [{
 
 
 // storing the hard coded json data in new array
+
 var text1 = "";
 var hardcodeLocation=[];
 var arrayLength = hardcodeLocations.length;
 for (var i = 0; i < arrayLength; i++) {
 	for (var j = 0; j < arrayLength; j++) {
     console.log(hardcodeLocations[i][j]);
-    document.getElementById("demo").innerHTML = hardcodeLocation;
+    document.getElementById("demo").innerHTML = text1;
 	}
-	console.log(text1);
 }
 
 
@@ -129,7 +129,7 @@ function initMap() {
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo").innerHTML = this.responseText;
+        document.getElementById("demo2").innerHTML = this.responseText;
         var obj1 = JSON.parse(this.responseText);
         var a0 = obj1.a0;
         	console.log(a0);
@@ -277,7 +277,7 @@ function myredraw() {
      });
 }
 
-
+/*
 // returning pubs targeting the sub array pubDays
 var getPubsByDay = function(hardcodeLocation, pubDays) {
 	var returnKey = -1;
@@ -289,6 +289,8 @@ var getPubsByDay = function(hardcodeLocation, pubDays) {
 		}
 	});
 };
-
+*/
+/*
 console.log(getPubsByDay(hardcodeLocation, 'All days'));
 
+*/
