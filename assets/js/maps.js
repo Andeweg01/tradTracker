@@ -81,14 +81,17 @@ var hardcodeLocations = [{
     ]
 }];
 
+
 // storing the hard coded json data
+var text1 = "";
 var hardcodeLocation=[];
 var arrayLength = hardcodeLocations.length;
 for (var i = 0; i < arrayLength; i++) {
 	for (var j = 0; j < arrayLength; j++) {
     console.log(hardcodeLocations[i,j]);
-    document.getElementById("demo").innerHTML = hardcodeLocation; 
+    document.getElementById("demo").innerHTML = text1;
 	}
+	console.log(text1);
 }
 
 
@@ -130,9 +133,55 @@ xhttp.onreadystatechange = function() {
         var obj1 = JSON.parse(this.responseText);
         var a0 = obj1.a0;
     }
+	console.log(a0);
 };
 xhttp.open("GET", "http://tradtracker.com/assets/js/pubs.json", true);
 xhttp.send();
+
+
+/* keeping this function for later use with external json file
+
+function initMap() {
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 9,
+            center: {
+                lat: 51.967125,
+                lng: -8.933958
+            }
+        });
+	
+        var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+        var locations = [
+ 			{ lat: 51.896697, lng: -8.476546 },
+			{ lat: 51.623023, lng: -8.888975 },
+			{ lat: 52.137655, lng: -8.278949 },
+			{ lat: 51.901743, lng: -8.471050 }
+		];
+	
+        var markers = locations.map(function(location, i){
+            return new google.maps.Marker({
+                position: location,
+                label: labels[i % labels.length]
+            });
+        });
+        
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+
+    }
+
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("demo").innerHTML = this.responseText;
+        var obj1 = JSON.parse(this.responseText);
+        var a0 = obj1.a0;
+    }
+};
+xhttp.open("GET", "http://tradtracker.com/assets/js/pubs.json", true);
+xhttp.send();
+*/
 
 
 /* function init() {
