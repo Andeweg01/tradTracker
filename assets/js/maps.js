@@ -1,197 +1,160 @@
 // JavaScript Document
 
 function initMap() {
-        var map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 9,
-            center: {
-                lat: 51.967125,
-                lng: -8.933958
-            }
+    var map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 9,
+        center: {
+            lat: 51.967125,
+            lng: -8.933958
+        }
+    });
+
+    var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    var locations = [{
+            lat: 51.896697,
+            lng: -8.476546
+        },
+        {
+            lat: 51.623023,
+            lng: -8.888975
+        },
+        {
+            lat: 52.137655,
+            lng: -8.278949
+        },
+        {
+            lat: 51.901743,
+            lng: -8.471050
+        }
+    ];
+
+    var markers = locations.map(function (location, i) {
+        return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
         });
-	
-        var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    });
 
-        var locations = [
- 			{ lat: 51.896697, lng: -8.476546 },
-			{ lat: 51.623023, lng: -8.888975 },
-			{ lat: 52.137655, lng: -8.278949 },
-			{ lat: 51.901743, lng: -8.471050 }
-		];
-	
-        var markers = locations.map(function(location, i){
-            return new google.maps.Marker({
-                position: location,
-                label: labels[i % labels.length]
-            });
-        });
-        
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+    var markerCluster = new MarkerClusterer(map, markers, {
+        imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+    });
 
+}
+
+function getData(cb) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "../assets/js/pubs.json", true);
+    xhr.send();
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            cb(JSON.parse(this.responseText));
+        }
+    };
+}
+
+function printDataToConsole(data) {
+    console.log(data);
+}
+
+getData(printDataToConsole);
+
+function allDayCoords(day, cb) {
+    var text1 = "";
+    var i;
+    var j;
+    var pubLocation = [];
+    var arrayLength = allPubs.length;
+    for (var i = 0; i < arrayLength; i++) {
+        document.getElementById("demo").innerHTML = pubLocation[0];
     }
-var allPubs=[];
-
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo").innerHTML = this.responseText;
-        var allPubs = JSON.parse(this.responseText);
-        console.log(allPubs.data);
-    }
+    cb();
 };
 
-xhttp.open("GET", "../assets/js/pubs.json", true);
-xhttp.send();
-
-console.log(allPubs);
-
-var text1 = "";
-var i;
-var j;
-var pubLocation=[];
-var arrayLength = allPubs.length;
-for (var i = 0; i < arrayLength; i++) {
-	for (var j = 0; j < arrayLength; j++) {
-    console.log(pubLocation[i][j]);
-    document.getElementById("demo").innerHTML = pubLocation;
-	}
-}
-
-/* keeping this function for later use with external json file
-
-function initMap() {
-        var map = new google.maps.Map(document.getElementById("map"), {
-            zoom: 9,
-            center: {
-                lat: 51.967125,
-                lng: -8.933958
-            }
-        });
-	
-        var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
-        var locations = [
- 			{ lat: 51.896697, lng: -8.476546 },
-			{ lat: 51.623023, lng: -8.888975 },
-			{ lat: 52.137655, lng: -8.278949 },
-			{ lat: 51.901743, lng: -8.471050 }
-		];
-	
-        var markers = locations.map(function(location, i){
-            return new google.maps.Marker({
-                position: location,
-                label: labels[i % labels.length]
-            });
-        });
-        
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-
-    }
-
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("demo").innerHTML = this.responseText;
-        var obj1 = JSON.parse(this.responseText);
-        var a0 = obj1.a0;
-    }
-};
-xhttp.open("GET", "http://tradtracker.com/assets/js/pubs.json", true);
-xhttp.send();
-*/
-
-
-/* function init() {
-  loadJSON(function(response) {
-    // Parse JSON string into object
-    var pub_JSON = JSON.parse(response);
-    console.log(pub_JSON);
-  });
-}
-*/
-
-/* 
-function selectPub() {
-    switch (document.getElementById("day-all").value) {
-        case 'all':
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 52.175664, lng: -6.585877 }, //Ireland
-                zoom: 10
-            });
-            break;
-        case 'Iceland':
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: 63.436650, lng: -19.090795 }, //Iceland
-                zoom: 12
-            });
-            break;
-        case 'New Zealand':
-            map = new google.maps.Map(document.getElementById('map'), {
-                center: { lat: -38.414427, lng: 175.107789 }, //New Zealand
-                zoom: 8
-            });
-            break;
-        default:
-    }
-}
-
-*/
 
 function myredraw() {
-	
- var dayLocations = [];
-  
- // Get array of input objects named 'day'
- var radios = document.getElementsByName('day');
- 
- // Loop through the array of HTML elements named 'day'
- // and return the value of the checked radio button.
- for (var i = 0, length = radios.length; i < length; i++) {
-  if (radios[i].checked) {
-   // Get value of checked
-   var radio_value = radios[i].value;
-   // only one radio can be logically checked, don't check the rest
-   break;
-  }
- }
- 
- // Conditional clause is now used to specify what occurs
- // depending on the value of the checked radio button.
- // In this case a Google Maps LatLng element is created with 
- // different coordinates.
- 
- if (radio_value === 0) {
-  var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value === 1) {
-  var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value === 2) {
-  var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value === 3) {
-  var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value === 4) {
-  var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value === 5) {
-  var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value === 6) {
-  var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else if (radio_value === 7) {
-  var myLatLng = {lat: 51.967125, lng: -8.476551};
- } else {
-  var myLatLng = {lat: 51.967125, lng: -8.476551};
- }
 
- 
- // map div is obtained from 
+    var dayLocations = [];
+
+    // Get array of input objects named 'day'
+    var radios = document.getElementsByName('day');
+
+    // Loop through the array of HTML elements named 'day'
+    // and return the value of the checked radio button.
+    for (var i = 0, length = radios.length; i < length; i++) {
+        if (radios[i].checked) {
+            // Get value of checked
+            var radio_value = radios[i].value;
+            // only one radio can be logically checked, don't check the rest
+            break;
+        }
+    }
+
+    // Conditional clause is now used to specify what occurs
+    // depending on the value of the checked radio button.
+    // In this case a Google Maps LatLng element is created with 
+    // different coordinates.
+
+    if (radio_value === 0) {
+        var myLatLng = {
+            lat: 51.967125,
+            lng: -8.476551
+        };
+    } else if (radio_value === 1) {
+        var myLatLng = {
+            lat: 51.967125,
+            lng: -8.476551
+        };
+    } else if (radio_value === 2) {
+        var myLatLng = {
+            lat: 51.967125,
+            lng: -8.476551
+        };
+    } else if (radio_value === 3) {
+        var myLatLng = {
+            lat: 51.967125,
+            lng: -8.476551
+        };
+    } else if (radio_value === 4) {
+        var myLatLng = {
+            lat: 51.967125,
+            lng: -8.476551
+        };
+    } else if (radio_value === 5) {
+        var myLatLng = {
+            lat: 51.967125,
+            lng: -8.476551
+        };
+    } else if (radio_value === 6) {
+        var myLatLng = {
+            lat: 51.967125,
+            lng: -8.476551
+        };
+    } else if (radio_value === 7) {
+        var myLatLng = {
+            lat: 51.967125,
+            lng: -8.476551
+        };
+    } else {
+        var myLatLng = {
+            lat: 51.967125,
+            lng: -8.476551
+        };
+    }
+
+
+    // map div is obtained from 
     var map = new google.maps.Map(document.getElementById('map'), {
-       zoom: 9,
-       center: myLatLng
-     });
-  
-     var marker = new google.maps.Marker({
+        zoom: 9,
+        center: myLatLng
+    });
+
+    var marker = new google.maps.Marker({
         position: myLatLng,
         map: map
-     });
+    });
 }
 
 /*
