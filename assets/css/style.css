@@ -74,10 +74,12 @@ div#map {
 .bg-color-about {
     background: url("../img/mainPipesLg.jpg");
     background-repeat: no-repeat;
+    background-size:cover;
 }
 .bg-color-form {
     background: url("../img/mainHarpLg.jpg");
     background-repeat: no-repeat;
+    background-size:cover;
 }
 .bg-color-info {
     background-color: #EAF3E3;
