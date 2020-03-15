@@ -1,6 +1,6 @@
 // JavaScript Document
 
-function getData(cb) {
+function getData(cb, selection) {
     var xhr = new XMLHttpRequest();
 
     xhr.open("GET", "../assets/js/pubs.json", true);
@@ -8,7 +8,14 @@ function getData(cb) {
 
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            cb(JSON.parse(this.responseText));
+            var Publist = [];
+
+            Publist = JSON.parse(this.responseText);
+
+            cb(Publist);
+            // We want to return some some data here to work with
+            //look at adding a parameter to this function so that we can limit the data returned if needed
+            return Publist;
         }
     };
 }
@@ -17,9 +24,21 @@ function printDataToConsole(data) {
     console.log(data);
 }
 
-getData(printDataToConsole);
+// On first load get the list of all pubs from the JSON file
+var MasterPublist = [];
 
-function initMap() {
+MasterPublist = getData(printDataToConsole);
+
+//On firstload default the selection to all days
+var selection = 0;
+
+//Next we need to get the list of all pub locations, call function to do thresholds
+
+var publocations = [];
+
+publocations = getPubsforDay(MasterPublist, selection);
+
+function initMap(publocations) {
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 9,
         center: {
@@ -30,23 +49,7 @@ function initMap() {
 
     var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    var locations = [{
-            lat: 51.896697,
-            lng: -8.476546
-        },
-        {
-            lat: 51.623023,
-            lng: -8.888975
-        },
-        {
-            lat: 52.137655,
-            lng: -8.278949
-        },
-        {
-            lat: 51.901743,
-            lng: -8.471050
-        }
-    ];
+    var locations = publocations;
 
     var markers = locations.map(function (location, i) {
         return new google.maps.Marker({
@@ -61,28 +64,9 @@ function initMap() {
 
 }
 
-
-function allDayCoords(day, cb) {
-    var text1 = "";
-    var i;
-    var j;
-    var pubLocation = [];
-    var arrayLength = allPubs.length;
-    for (var i = 0; i < arrayLength; i++) {
-        document.getElementById("demo").innerHTML = pubLocation[0];
-    }
-    cb();
-};
-
-
-
 function myredraw() {
-
-    var dayLocations = [];
-
     // Get array of input objects named 'day'
     var radios = document.getElementsByName('day');
-
     // Loop through the array of HTML elements named 'day'
     // and return the value of the checked radio button.
     for (var i = 0, length = radios.length; i < length; i++) {
@@ -94,93 +78,61 @@ function myredraw() {
         }
     }
 
-    // Conditional clause is now used to specify what occurs
-    // depending on the value of the checked radio button.
-    // In this case a Google Maps LatLng element is created with 
-    // different coordinates.
+    var myLatLng = [];
+    //associative array used {}
+    myLatLng = {
+        lat: 51.967125,
+        lng: -8.476551
+    };
 
-    if (radio_value === 0) {
-        var myLatLng = {
-            lat: 51.967125,
-            lng: -8.476551
-        };
-    } else if (radio_value === 1) {
-        var myLatLng = {
-            lat: 51.967125,
-            lng: -8.476551
-        };
-    } else if (radio_value === 2) {
-        var myLatLng = {
-            lat: 51.967125,
-            lng: -8.476551
-        };
-    } else if (radio_value === 3) {
-        var myLatLng = {
-            lat: 51.967125,
-            lng: -8.476551
-        };
-    } else if (radio_value === 4) {
-        var myLatLng = {
-            lat: 51.967125,
-            lng: -8.476551
-        };
-    } else if (radio_value === 5) {
-        var myLatLng = {
-            lat: 51.967125,
-            lng: -8.476551
-        };
-    } else if (radio_value === 6) {
-        var myLatLng = {
-            lat: 51.967125,
-            lng: -8.476551
-        };
-    } else if (radio_value === 7) {
-        var myLatLng = {
-            lat: 51.967125,
-            lng: -8.476551
-        };
-    } else {
-        var myLatLng = {
-            lat: 51.967125,
-            lng: -8.476551
-        };
-    }
-
+    // on redraw pass radio button as a parameter to getData, array of associative arrays should be returned
+    myLatLng = getPubsforDay(MasterPublist, radio_value);
 
     // map div is obtained from 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 9,
-        center: myLatLng
+        center: myLatLng[0]
     });
 
     var marker = new google.maps.Marker({
-        position: myLatLng,
+        position: myLatLng[0],
         map: map
     });
 }
 
 // returning pubs targeting the sub array pubDays
-function getDays(cb) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("GET", "../assets/js/pubs.json", true);
-    xhr.send();
-
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-var getPubsByDay = function(getData, pubDays) {
-	var returnKey = -1;
-	
-	$.each(getData, function(key, info) {
-		if(info.pubDays == pubDays) {
-			returnKey = key;
-			return false;
-		};
-    });
+function getPubsforDay(MasterPublist, dayselected) {
+    var myLatLng = [];
+    for (var i = 0, length = MasterPublist.length; i < length; i++) {
+        if (checkday(MasterPublist[i], dayselected)) {
+          myLatLng = MasterPublist[i].[pubDays];
+    }
 }
-		}
-	}
-};
+    return myLatLng;
+}
+
+function checkday(pub, day) {
+    var result = 0;
+    for (var checkday in pub) {
+        if (checkday.equals(day))
+        {
+            result = 1;
+            return result;
+        }
+    }
+    return result;
+}
+
+function allDayCoords(day, cb) {
+    var text1 = "";
+    var i;
+    var j;
+    var pubLocation = [];
+    var arrayLength = allPubs.length;
+    for (var i = 0; i < arrayLength; i++) {
+        document.getElementById("demo").innerHTML = pubLocation[0];
+    }
+    cb();
+}
 
 console.log(getDays);
-
