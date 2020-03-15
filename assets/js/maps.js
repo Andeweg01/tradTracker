@@ -64,9 +64,12 @@ function initMap(publocations) {
 
 }
 
+
 function myredraw() {
+
     // Get array of input objects named 'day'
     var radios = document.getElementsByName('day');
+
     // Loop through the array of HTML elements named 'day'
     // and return the value of the checked radio button.
     for (var i = 0, length = radios.length; i < length; i++) {
@@ -78,6 +81,7 @@ function myredraw() {
         }
     }
 
+
     var myLatLng = [];
     //associative array used {}
     myLatLng = {
@@ -85,8 +89,10 @@ function myredraw() {
         lng: -8.476551
     };
 
+
     // on redraw pass radio button as a parameter to getData, array of associative arrays should be returned
     myLatLng = getPubsforDay(MasterPublist, radio_value);
+
 
     // map div is obtained from 
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -105,23 +111,30 @@ function getPubsforDay(MasterPublist, dayselected) {
     var myLatLng = [];
     for (var i = 0, length = MasterPublist.length; i < length; i++) {
         if (checkday(MasterPublist[i], dayselected)) {
-          myLatLng = MasterPublist[i].[pubDays];
+          myLatLng = MasterPublist[i], [pubDays];
     }
 }
+
     return myLatLng;
+
 }
+
 
 function checkday(pub, day) {
     var result = 0;
     for (var checkday in pub) {
+
         if (checkday.equals(day))
+
         {
             result = 1;
             return result;
         }
+
     }
     return result;
 }
+
 
 function allDayCoords(day, cb) {
     var text1 = "";
@@ -134,5 +147,6 @@ function allDayCoords(day, cb) {
     }
     cb();
 }
+
 
 console.log(getDays);
