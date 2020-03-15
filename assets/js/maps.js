@@ -1,5 +1,24 @@
 // JavaScript Document
 
+function getData(cb) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "../assets/js/pubs.json", true);
+    xhr.send();
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            cb(JSON.parse(this.responseText));
+        }
+    };
+}
+
+function printDataToConsole(data) {
+    console.log(data);
+}
+
+getData(printDataToConsole);
+
 function initMap() {
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 9,
@@ -42,24 +61,6 @@ function initMap() {
 
 }
 
-function getData(cb) {
-    var xhr = new XMLHttpRequest();
-
-    xhr.open("GET", "../assets/js/pubs.json", true);
-    xhr.send();
-
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            cb(JSON.parse(this.responseText));
-        }
-    };
-}
-
-function printDataToConsole(data) {
-    console.log(data);
-}
-
-getData(printDataToConsole);
 
 function allDayCoords(day, cb) {
     var text1 = "";
@@ -72,6 +73,7 @@ function allDayCoords(day, cb) {
     }
     cb();
 };
+
 
 
 function myredraw() {
@@ -157,20 +159,28 @@ function myredraw() {
     });
 }
 
-/*
 // returning pubs targeting the sub array pubDays
-var getPubsByDay = function(hardcodeLocation, pubDays) {
+function getDays(cb) {
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("GET", "../assets/js/pubs.json", true);
+    xhr.send();
+
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+var getPubsByDay = function(getData, pubDays) {
 	var returnKey = -1;
 	
-	$.each(hardcodeLocation, function(key, info) {
+	$.each(getData, function(key, info) {
 		if(info.pubDays == pubDays) {
 			returnKey = key;
 			return false;
+		};
+    });
+}
 		}
-	});
+	}
 };
-*/
-/*
-console.log(getPubsByDay(hardcodeLocation, 'All days'));
 
-*/
+console.log(getDays);
+
