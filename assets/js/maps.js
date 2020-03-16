@@ -81,13 +81,18 @@ var getData = [{
     ]
 }];
 
-// On first load get the list of all pubs from the getData array
-var MasterPublist = [];
-
-MasterPublist = getData[selection];
+alert(getData);
 
 //On firstload default the selection to all days
 var selection = 0;
+
+// On first load get the list of all pubs from the getData array
+var MasterPublist = [];
+
+MasterPublist = getData(selection);
+
+alert(MasterPublist);
+console.log
 
 //Next we need to get the list of all pub locations, call function to do thresholds
 
