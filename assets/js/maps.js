@@ -1,79 +1,33 @@
 // JavaScript Document
 
-let MasterPublist = [{
-    "pubCoords": {
-        "lat": 51.896597,
-        "lng": -8.476546
-    },
-    "pubName": "An Spailpin Fanach",
-    "pubAddress": "27-29 South Main Street, Cork City",
-    "pubDescribe": "A character-filled pub in the heart of the city with a warm, Irish atmosphere. Visitors can enjoy traditional music nightly and the Cork Singer’s Club on Sunday evenings. There’s always a bit of great craic in store as well. Food is served Monday through Friday between noon and 3pm.",
-    "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
-    "pubDays": [
-        "All days",
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ]
-},
-{
-    "pubCoords": {
-        "lat": 51.623023,
-        "lng": -8.888975
-    },
-    "pubName": "DeBarras Folk Club",
-    "pubAddress": "55 Pearse St, Scartagh, Clonakilty",
-    "pubDescribe": "In the last 30 year’s DeBarra’s Folk Club in the beautiful sea-side town of Clonakilty has earned a musical reputation that has traveled far beyond the confines of its West Cork location.",
-    "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
-    "pubDays": [
-        "Monday",
-        "Thursday",
-    ]
-},
-{
-    "pubCoords": {
-        "lat": 52.137655,
-        "lng": -8.278949
-    },
-    "pubName": "Cheers Bar",
-    "pubAddress": "81 McCurtain St, Fermoy",
-    "pubDescribe": "live music, live sport on 6 screens, welcoming staff and mighty pints",
-    "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
-    "pubDays": [
-        "Monday",
-    ]
-},
-{
-    "pubCoords": {
-        "lat": 51.901743,
-        "lng": -8.471050
-    },
-    "pubName": "Sin é",
-    "pubAddress": "8 Coburg St, Victorian Quarter, Cork",
-    "pubDescribe": "The long-established home of Irish traditional music in Cork city, the Irish words ‘Sin é’ literally translate to mean ‘That’s it’, in reference to the funeral parlour located next door. Non-stop traditional music 7 days a week from 6 – close Monday – Saturday, and from 5 on Sunday.",
-    "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
-    "pubDays": [
-        "All days",
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday"
-    ]
-}];
+// Declare global locations array
+let locations = [];
 
+// This function will filter out based on the day
 function filterBarsByDay(day) {
-  let openBars = MasterPublist.filter(function(pub) {
-    return pub.pubDays.includes(day);
-  //  return bar.pubDays.includes(day); - was this a typo?
-  });
-  return openBars;
+    // Arrow-functions
+    let openBars = MasterPublist.filter(pub => {
+        return pub.pubDays.includes(day);
+    });
+    return openBars;
+}
+
+// Extract coordinates from each item in the dataset provided
+function getCoordsFromObject(data) {
+    let coords = data.map(pub => {
+        return pub.pubCoords;
+    });
+    return coords;
+}
+
+// On page load get the full list items from the MasterPublist on page load
+locations = getCoordsFromObject(MasterPublist);
+
+// When a user selects a radio button, filter the data, and draw the map, with subset of data
+function radioButtonSelection(element) {
+    let pubs = filterBarsByDay(element.value);
+    locations = getCoordsFromObject(pubs);
+    drawMap();
 }
 
 /*
@@ -86,23 +40,17 @@ function getCoords(pubs) {
 }
  */
 
-function getCoordsFromObject(data) {
-  let coords = data.map(function(pub) {
-    return pub.pubCoords;
-  });
-  return coords;
-}
+
 
 /*
 [{}, {}];
 */
 
-// On page load
-let locations = getCoordsFromObject(MasterPublist);
-
 // After user filters
-let pubs = filterBarsByDay("Saturday");
-let publocations = getCoordsFromObject(pubs);
+// let pubs = filterBarsByDay(dayChoosenByUser);
+// let publocations = getCoordsFromObject(pubs);
+
+
 
 
 //On firstload default the selection to all days
@@ -119,7 +67,8 @@ publocations = getPubsforDay(MasterPublist, selection);
 alert(publocations);
 */
 
-function initMap(publocations) {
+// Draw the map
+function drawMap() {
     var map = new google.maps.Map(document.getElementById("map"), {
         zoom: 9,
         center: {
@@ -130,9 +79,9 @@ function initMap(publocations) {
 
     var labels = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-    var locations = publocations;
+    // var locations = publocations;
 
-    var markers = locations.map(function (location, i) {
+    var markers = locations.map((location, i) => {
         return new google.maps.Marker({
             position: location,
             label: labels[i % labels.length]
@@ -142,7 +91,6 @@ function initMap(publocations) {
     var markerCluster = new MarkerClusterer(map, markers, {
         imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
     });
-
 }
 
 

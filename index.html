@@ -34,28 +34,28 @@
 		  <br>
 		  Find me a trad session on:</p>
             <div id="days-container" class="days-controls">
-      <input type="radio" name="day" value="0" id="day-all" checked="checked" onclick="myredraw(this);">
+      <input type="radio" name="day" value="All days" id="day-all" checked="checked" onclick="radioButtonSelection(this);">
       <label for="day-all">All days</label><br>
 
-      <input type="radio" name="day" value="1" id="day-saturday" onclick="myredraw(initMap);">
+      <input type="radio" name="day" value="Saturday" id="day-saturday" onclick="radioButtonSelection(this);">
       <label for="day-saturday">Saturday </label>
 
-      <input type="radio" name="day" value="2" id="day-sunday" onclick="myredraw(this);">
+      <input type="radio" name="day" value="Sunday" id="day-sunday" onclick="radioButtonSelection(this);">
       <label for="day-sunday">Sunday</label><br>
 
-      <input type="radio" name="day" value="3" id="day-monday" onclick="myredraw(this);">
+      <input type="radio" name="day" value="Monday" id="day-monday" onclick="radioButtonSelection(this);">
       <label for="day-monday">Monday</label><br>
 
-      <input type="radio" name="day" value="4" id="day-tuesday" onclick="myredraw(this);">
+      <input type="radio" name="day" value="Tuesday" id="day-tuesday" onclick="radioButtonSelection(this);">
       <label for="day-tuesday">Tuesday</label><br>
 
-      <input type="radio" name="day" value="5" id="day-wednesday" onclick="myredraw(this);">
+      <input type="radio" name="day" value="Wednesday" id="day-wednesday" onclick="radioButtonSelection(this);">
       <label for="day-wednesday">Wednesday</label><br>
 
-      <input type="radio" name="day" value="6" id="day-thursday" onclick="myredraw(this);">
+      <input type="radio" name="day" value="Thursday" id="day-thursday" onclick="radioButtonSelection(this);">
       <label for="day-thursday">Thursday</label><br>
 
-      <input type="radio" name="day" value="7" id="day-friday" onclick="myredraw(this);">
+      <input type="radio" name="day" value="Friday" id="day-friday" onclick="radioButtonSelection(this);">
       <label for="day-friday">Friday</label><br>
     </div>
       <div class="pubInfo">
@@ -84,13 +84,12 @@
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 	<script src="https://kit.fontawesome.com/8ccbaa0e54.js" crossorigin="anonymous"></script>
-
+    
+    <script src="assets/js/pubs.js"></script>
+    <script src="assets/js/maps.js"></script>
 	
 	<!-- google scripts and libraries -->
 	<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclustererplus@4.0.1.min.js"></script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbyehlGjbQQXrOGtkdVZLtJPsFqVJmJkE&callback=initMap"></script> 
-
-	<script src="assets/js/maps.js"></script>
-	<script type="text/javascript" src="../assets/js/pubs.json"></script>
+	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbyehlGjbQQXrOGtkdVZLtJPsFqVJmJkE&callback=drawMap"></script> 
 </body>
 </html>
