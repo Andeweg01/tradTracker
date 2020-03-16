@@ -84,7 +84,7 @@ var getData = [{
 // On first load get the list of all pubs from the getData array
 var MasterPublist = [];
 
-MasterPublist = getData(selection);
+MasterPublist = getData[selection];
 
 //On firstload default the selection to all days
 var selection = 0;
@@ -94,6 +94,8 @@ var selection = 0;
 var publocations = [];
 
 publocations = getPubsforDay(MasterPublist, selection);
+
+alert(publocations);
 
 function initMap(publocations) {
     var map = new google.maps.Map(document.getElementById("map"), {
@@ -147,7 +149,7 @@ function myredraw() {
     };
 
 
-    // on redraw pass radio button as a parameter to getData, array of associative arrays should be returned
+    // on redraw pass radio button as a parameter to masterPublist, array of associative arrays should be returned
     myLatLng = getPubsforDay(MasterPublist, radio_value);
 
 
@@ -168,7 +170,7 @@ function getPubsforDay(MasterPublist, dayselected) {
     var myLatLng = [];
     for (var i = 0, length = MasterPublist.length; i < length; i++) {
         if (checkday.equals(MasterPublist[i], dayselected)) {
-          myLatLng = MasterPublist[i], [pubDays];
+          myLatLng = MasterPublist[i][pubDays];
     }
 }
     return myLatLng;
