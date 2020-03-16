@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var getData = [{
+var MasterPublist = [{
     "pubCoords": {
         "lat": 51.896597,
         "lng": -8.476546
@@ -81,18 +81,11 @@ var getData = [{
     ]
 }];
 
-alert(getData);
+alert(MasterPublist);
 
 //On firstload default the selection to all days
 var selection = 0;
 
-// On first load get the list of all pubs from the getData array
-var MasterPublist = [];
-
-MasterPublist = getData(selection);
-
-alert(MasterPublist);
-console.log
 
 //Next we need to get the list of all pub locations, call function to do thresholds
 
