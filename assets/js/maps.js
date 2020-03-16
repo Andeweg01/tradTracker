@@ -163,23 +163,25 @@ function myredraw() {
     });
 }
 
+
 // returning pubs targeting the sub array pubDays
-function getPubsforDay(MasterPublist, dayselected) {
+function getPubsforDay(MasterPublist, selection) {
     var myLatLng = [];
     for (var i = 0, length = MasterPublist.length; i < length; i++) {
-        if (checkday.equals(MasterPublist[i], dayselected)) {
-          myLatLng = MasterPublist[i][pubDays];
+        if (checkday == (MasterPublist[i], selection)) {
+          myLatLng = MasterPublist[i][0];
     }
 }
     return myLatLng;
 }
 
+console.log(myLatLng);
 
 function checkday(pub, day) {
     var result = 0;
     for (var checkday in pub) {
 
-        if (checkday.equals(day))
+        if (checkday ==(day))
 
         {
             result = 1;
@@ -201,4 +203,4 @@ function allDayCoords(day, cb) {
 }
 
 
-console.log(getDays);
+console.log(MasterPublist);
