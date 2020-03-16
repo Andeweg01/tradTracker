@@ -1,6 +1,7 @@
 // JavaScript Document
 
-var MasterPublist = [{
+
+let MasterPublist = [{
     "pubCoords": {
         "lat": 51.896597,
         "lng": -8.476546
@@ -30,14 +31,8 @@ var MasterPublist = [{
     "pubDescribe": "In the last 30 year’s DeBarra’s Folk Club in the beautiful sea-side town of Clonakilty has earned a musical reputation that has traveled far beyond the confines of its West Cork location.",
     "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
     "pubDays": [
-        "",
-        "",
         "Monday",
-        "",
-        "",
         "Thursday",
-        "",
-        ""
     ]
 },
 {
@@ -50,14 +45,7 @@ var MasterPublist = [{
     "pubDescribe": "live music, live sport on 6 screens, welcoming staff and mighty pints",
     "pubImg": "http://www.tradtracker.com/assets/img/AnSpailpinFanach.jpg",
     "pubDays": [
-        "",
-        "",
         "Monday",
-        "",
-        "",
-        "",
-        "",
-        ""
     ]
 },
 {
@@ -81,7 +69,42 @@ var MasterPublist = [{
     ]
 }];
 
-alert(MasterPublist);
+function filterBarsByDay(day) {
+  let openBars = MasterPublist.filter(function(pub) {
+    return pub.pubDays.includes(day);
+  //  return bar.pubDays.includes(day); - was this a typo?
+  });
+  return openBars;
+}
+
+/*
+// Old-school approach
+function getCoords(pubs) {
+  let coords = []
+  for pub in pubs:
+    coords.push(pub.pubCoords)
+  return coords;
+}
+ */
+
+function getCoordsFromObject(data) {
+  let coords = data.map(function(pub) {
+    return pub.pubCoords;
+  });
+  return coords;
+}
+
+/*
+[{}, {}];
+*/
+
+// On page load
+let locations = getCoordsFromObject(MasterPublist);
+
+// After user filters
+let pubs = filterBarsByDay("Saturday");
+let publocations = getCoordsFromObject(pubs);
+
 
 //On firstload default the selection to all days
 var selection = 0;
@@ -89,11 +112,13 @@ var selection = 0;
 
 //Next we need to get the list of all pub locations, call function to do thresholds
 
+/*
 var publocations = [];
 
 publocations = getPubsforDay(MasterPublist, selection);
 
 alert(publocations);
+*/
 
 function initMap(publocations) {
     var map = new google.maps.Map(document.getElementById("map"), {
@@ -163,6 +188,7 @@ function myredraw() {
     });
 }
 
+/*
 
 // returning pubs targeting the sub array pubDays
 function getPubsforDay(MasterPublist, selection) {
@@ -170,18 +196,18 @@ function getPubsforDay(MasterPublist, selection) {
     for (var i = 0, length = MasterPublist.length; i < length; i++) {
         if (checkday == (MasterPublist[i], selection)) {
           myLatLng = MasterPublist[i][0];
+          console.log(myLatLng);
     }
 }
     return myLatLng;
 }
 
-console.log(myLatLng);
 
 function checkday(pub, day) {
     var result = 0;
     for (var checkday in pub) {
 
-        if (checkday ==(day))
+        if (checkday == (day))
 
         {
             result = 1;
@@ -204,3 +230,4 @@ function allDayCoords(day, cb) {
 
 
 console.log(MasterPublist);
+*/
