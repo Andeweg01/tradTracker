@@ -1,6 +1,5 @@
 // JavaScript Document
 
-
 let MasterPublist = [{
     "pubCoords": {
         "lat": 51.896597,
