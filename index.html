@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <div class="row">
+  <!-- navigation toggler -->
+	<div class="row">
         <nav class="navbar navbar-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"> <span class="navbar-toggler-icon"> </span>
                 <div class="collapse navbar-collapse" id="navbarText">
@@ -25,6 +26,7 @@
             </button>
         </nav>
     </div>
+	<!-- section for site info, selection, imagery and explanation -->
     <section class="container-fluid vh-100">
         <div class="row">
             <div class="col-md-3 bg-color-info">
@@ -36,6 +38,8 @@
                     <br> Starting with County Cork we want to show all locations with regular trad sessions.
                     <br>
                     <br> Find a location with regular sessions on:</p>
+				
+				<!-- day selection -->
                 <div id="days-container" class="days-controls">
                     <input type="radio" name="day" value="All days" id="day-all" checked="checked" onclick="radioButtonSelection(this);">
                     <label for="day-all">All days</label>
@@ -68,6 +72,7 @@
                     <label for="day-friday">Friday</label>
                     <br>
                 </div>
+				<!-- how to use this site -->
                 <div class="pubInfo">
                     <div class="pub-info-item">
                         <h4 class="pub-name">How to</h4>
@@ -89,6 +94,7 @@
         </div>
     </section>
 
+	<!-- scripts and CDNs -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/8ccbaa0e54.js" crossorigin="anonymous"></script>
