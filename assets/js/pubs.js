@@ -1,3 +1,5 @@
+// JavaScript Document
+
 let MasterPublist = [
     {
         "pubCoords":{
@@ -21,8 +23,8 @@ let MasterPublist = [
     },
     {
         "pubCoords":{
-            "lat":51.623023,
-            "lng":-8.888975
+            "lat":51.622936,
+            "lng":-8.888982
         },
         "pubName":"DeBarras Folk Club",
         "pubAddress":"55 Pearse St, Scartagh, Clonakilty",
