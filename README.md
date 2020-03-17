@@ -16,12 +16,14 @@ When proven successful, the idea will be extended to more counties. Even cross b
 
 
 ## UX
-The goal of the site is to provide a quick overview of all the locations where sessions are played regularly and a quick filter on specific days of the week.
+The goal of the site is to provide a quick overview of all the locations where sessions are played regularly and a quick and simple filter on specific days of the week.
 Initially the map loads with all the available markers (pubs); a no-click-result. Colours are chosen to be linked to Ireland (green) but not the deep, 
-dark green you might think of when looking for pubs. This is to try and avoid a cliche, dark atmosphere. Even though these dark colours are associated with 
-a night in the pub, the site has to be inviting, modern looking but most of all practical. This light, but still traditional colour green works well 
-as family and friends confirmed.
+dark green you might think of when thinking of pubs. This is to try and avoid a cliche, dark atmosphere. Even though these dark colours are associated with 
+a night in the pub, the site has to be inviting, modern looking (Ireland is a modern society) but most of all practical. This light, but still traditional 
+colour green works well as family and friends confirmed.
 Only a short description of what the site is about and how it works should be enough for a very quick result for the user.  
+
+Navigation is kept as a hamburger. Every user on the internet is well used to this symbol and will click it when looking for more information.
 
 The logo is my own design. For music enthousiast very clearly a pick for stringed instruments but at the same time a location pin as used in Google Maps. 
 The descriptive and decorative text 'Find your session now' is placed in the font that Fender uses for it's brand. 
@@ -33,6 +35,11 @@ The background picture is kept light to avoid interference with the text.
 
 The page 'Form.html' shows a simple form in a similar layout to about.html. Pub owners are businessmen and don't want to spend much time on filling out forms, even online. 
 The form is processed with EmailJS.com and gives a response pop up when successfully sent, or for some reason failed.
+
+The mockup made with Adobe XD and used to design TradTracker.com:
+![ homepage](https://github.com/Andeweg01/tradTracker/blob/master/assets/img/TradTracker-home.png?raw=true)
+![ addMe](https://github.com/Andeweg01/tradTracker/blob/master/assets/img/TradTracker-addMe.png?raw=true)
+![ about](https://github.com/Andeweg01/tradTracker/blob/master/assets/img/TradTracker-about.png?raw=true)
 
 
 A few examples of how this site can benefit users:
@@ -55,7 +62,7 @@ Having locations of one's pub on a map showing their regular trad sessions can g
 Also the organiser of sessions can plan more effectively when he's up-to-date with the days that other pubs have their sessions.
 
 
-## Features
+## FEATURES
 
 The site will consist of very brief explanation of what can be found on the map and why this is the best place to find that information.
 The map will be the main focus with the filter to select the day of the week.
@@ -71,7 +78,7 @@ An about page with some information about the maker and his intentions with this
 * Social media links when set up.
 
 
-### Technologies used:
+## TECHNOLOGIES USED:
   * [FontAwesome](https://fontawesome.com/) for icons like the pin symbol, phone and email symbols where the contact details for Designed.Irish are.
   * [Google Fonts](https://fonts.google.com/) for the used font Open-Sans.
   * [Bootstrap 4.4.1](https://getbootstrap.com/) for basic elements and components like the toggle navbar (which always stays the hamburger-type), flexbox functionality, resonsiveness.
@@ -85,7 +92,9 @@ An about page with some information about the maker and his intentions with this
 
 ## TESTING:
 
-Testing of the website is done physically on Windows 10 desktop, tablet and laptop, Android tablet and phone, iPad iOS, iPhone and MacBook Pro.
+Validators like those of W3C, JSHint.com, html-formatter.com and cleancss.com for beautifying and along the process several other online services, were used to
+make sure the code was valid, clean, well indented and readable. 
+Physical testing of the website and code was done on Windows 10 desktop and laptop, Android tablet and phone, iPad iOS, iPhone and MacBook Pro.
 The tested browsers were Chrome, Edge, Firefox, Samsung for Android tablet, Safari. Not all browsers were available on all platforms as the table hereunder shows.
 The following was tested:
 
@@ -165,6 +174,7 @@ Development was done within Adobe Dreamweaver to avoid losing code when GitPod g
 Deploying to another live environment (tradtracker.com) gave me more information on how code was behaving and was sometimes just quicker to check.
 Code was copied regularly to GitPod where the assets and files were pushed to the GitHub repository. Sessions with tutors and mentor were mostly done on GitPod.
 
+
 ## CREDITS
 
 ### Content
@@ -175,12 +185,12 @@ Text on the about.html page on traditional music was taken from Wikipedia.
 The photographs used on the site are my own.
 
 ## Acknowledgements
-The overall design is my own. The hamburger navigation on top comes from [Bootstrap](https://getbootstrap.com/).
+The overall design is my own. The hamburger navigation on top is taken from [Bootstrap](https://getbootstrap.com/).
 Much of the html and css code is based on earlier lessons in the CodeInstitute course. 
 JavaScript code has been tough for me. I have tried different approaches based on fellow student's code, 
-a good friends' code who is well versed in Java but not JavaScript. I learned a lot about the structure, but got lost in the differences in syntax.
+a good friends' code who is well versed in Java but not JavaScript. From that I learned a lot about structure, but the difference in syntax made it hard to use.
 Ultimately the help of my mentor Aaron Sinnott got me through the challenges of cracking the puzzle. He has shown me some latest developments in
-how to approach the filtering and redrawing the Google Maps map, resulting in a compact script that tested successfully on all devices available to me physically and
+how to approach filtering and redrawing Google Maps maps, resulting in a very compact script that tested successfully on all devices available to me physically and
 only showing standard errors on the bootstrap library in validators.
 
 I thank the Code Institute for their well organised and enthousiastic support. Their commitment to my success is much appreciated.
