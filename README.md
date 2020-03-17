@@ -64,17 +64,21 @@ Also the organiser of sessions can plan more effectively when he's up-to-date wi
 
 ## FEATURES
 
-The site will consist of very brief explanation of what can be found on the map and why this is the best place to find that information.
-The map will be the main focus with the filter to select the day of the week.
-A form for organisers to add their venue and additional information or to ask for more information.
-An about page with some information about the maker and his intentions with this site.
+The site consists of a very brief explanation of what can be found on the map 
+and why the information is presented on a map.
+The map will be the main focus with filters to select the day of the week, 
+showing markers on the map of venues that have sessions on that day of the week on a regular basis.
+A form for organisers/venue owners to add their venue or request additional information.
+An about page with some information about the developer and his intentions with this site and
+some general information on Irish traditional music.
+
 
 ### Features Left to Implement
 
+* Clicking on the marker will give the user more information on the location.
 * Filtering on more catergories like type of music, instrument used or musicians
 * More links to useful information on Irish trad
 * Possibly linking to TripAdvisor for ratings 
-* Clicking on the marker will give the user more information on the location.
 * Social media links when set up.
 
 
@@ -82,17 +86,17 @@ An about page with some information about the maker and his intentions with this
   * [FontAwesome](https://fontawesome.com/) for icons like the pin symbol, phone and email symbols where the contact details for Designed.Irish are.
   * [Google Fonts](https://fonts.google.com/) for the used font Open-Sans.
   * [Bootstrap 4.4.1](https://getbootstrap.com/) for basic elements and components like the toggle navbar (which always stays the hamburger-type), flexbox functionality, resonsiveness.
-  * HTML5
-  * CSS3
-  * JavaScript
-  * [Google Maps API](https://developers.google.com/maps/documentation) for placing markers and clustering of markers.
+  * HTML5 for the html pages
+  * CSS3 for styling of the site and it's elements
+  * JavaScript for using the Google Maps API and filtering and in the EmailJS mail script.
+  * [Google Maps API](https://developers.google.com/maps/documentation) for calling the maps, placing markers and clustering of markers.
   * [JQuery 3.4.1](https://jquery.com/download/) is only used for the toggle menu, but will play a role in a next fase where more data for clicked markers will be shown.
   * [EmailJS](https://www.emailjs.com/) for processing the email form on the page form.html.
 
 
 ## TESTING:
 
-Validators like those of W3C, JSHint.com, html-formatter.com and cleancss.com for beautifying and along the process several other online services, were used to
+Validators like those of W3C, JSHint.com, html-formatter.com and cleancss.com for beautifying and along the way several other online services, were used to
 make sure the code was valid, clean, well indented and readable. 
 Physical testing of the website and code was done on Windows 10 desktop and laptop, Android tablet and phone, iPad iOS, iPhone and MacBook Pro.
 The tested browsers were Chrome, Edge, Firefox, Samsung for Android tablet, Safari. Not all browsers were available on all platforms as the table hereunder shows.
@@ -104,7 +108,7 @@ The following was tested:
 
 3 *Links:* Do all the links and radio buttons function properly and do all functions and links stay within the site as intended (no _blank) at this point.
 
-4 *Form:* Does the form warn when fields are blank before sending and does the pop up show when successfully sent.
+4 *Form:* Does the form warn when fields are blank before sending and does the pop up show when successfully sent. The service EmailJS does not provide validation of the email address.
 
 5 *Map redraw:* Does the map redraw with the relevant markers when opening and selecting 'days' with the radio buttons.
 
@@ -170,25 +174,26 @@ Colours look good on all platforms and browsers.
 
 ## DEPLOYMENT
 
-Development was done within Adobe Dreamweaver to avoid losing code when GitPod glitches. 
-Deploying to another live environment (tradtracker.com) gave me more information on how code was behaving and was sometimes just quicker to check.
-Code was copied regularly to GitPod where the assets and files were pushed to the GitHub repository. Sessions with tutors and mentor were mostly done on GitPod.
+Development was done both with Adobe Dreamweaver and GitPod. Deploying live to a hosting server that I will use when the site is 'open to the public'
+gave me an extra backup, since GitHub seems to be a little unstable sometimes, causing me to lose code along the way. 
+GitPod/Github was used to deploy in line with the CodeInstitute's processes and I tried to always deploy both to tradtracker.com and GitHub at the same time.  
+Sessions with tutors and mentor were mostly done on GitPod.
 
 
 ## CREDITS
 
 ### Content
-The locations used on this initial map was found partly on [TradConnect](https://tradconnect.com/page/ireland-sessions-listing-pub/) and Facebook profiles of pubs. 
+The locations used on this initial map were found on [TradConnect](https://tradconnect.com/page/ireland-sessions-listing-pub/) and Facebook profiles of pubs. 
 Text on the about.html page on traditional music was taken from Wikipedia.
 
 ### Media
-The photographs used on the site are my own.
+The photographs as well as the logo used on the site are my own creations.
 
 ## Acknowledgements
 The overall design is my own. The hamburger navigation on top is taken from [Bootstrap](https://getbootstrap.com/).
-Much of the html and css code is based on earlier lessons in the CodeInstitute course. 
-JavaScript code has been tough for me. I have tried different approaches based on fellow student's code, 
-a good friends' code who is well versed in Java but not JavaScript. From that I learned a lot about structure, but the difference in syntax made it hard to use.
+Most of the html and css code is based on earlier lessons in the CodeInstitute course. 
+JavaScript code has been tough for me. I have tried different approaches based on fellow student's code, suggestions of tutors and also suggested code of
+a good friend who is well versed in Java but not JavaScript. From that I learned a lot about structure, but the difference in syntax made it hard to grasp and use.
 Ultimately the help of my mentor Aaron Sinnott got me through the challenges of cracking the puzzle. He has shown me some latest developments in
 how to approach filtering and redrawing Google Maps maps, resulting in a very compact script that tested successfully on all devices available to me physically and
 only showing standard errors on the bootstrap library in validators.
