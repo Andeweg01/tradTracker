@@ -1,158 +1,152 @@
 @charset "utf-8";
 /* CSS Document */
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
-body {
-    background-color: #EAF3E3;
-    margin: 0;
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&display=swap');
+ body {
+     background-color: #EAF3E3;
+     margin: 0;
 }
-div#map {
-    height: 100%;
-    min-height: 360px;
+ #map {
+     height: 100%;
+     min-height: 360px;
 }
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+ .center {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
 }
-.mainHeader {
-    position: relative;
-}
+
 /*-------------------------------Navigation */
-#nav {
-    margin: 0;
+ #nav {
+     margin: 0;
 }
-#nav li {
-    font-size: 14px;
-    padding: 0;
+ #nav li {
+     font-size: 14px;
+     padding: 0;
 }
+.navbar-collapse {
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -ms-flex-align: left;
+  align-items: left;
+}
+.nav-justified .nav-item {
+  -ms-flex-preferred-size: 0;
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  text-align: left;
+}
+
+
 /*-------------------------------Day selector for map */
-#infowindow-content .title {
-    font-weight: bold;
+
+ #days-container {
+     padding-bottom: 12px;
+     margin-right: 12px;
 }
-#infowindow-content {
-    display: none;
+ .days-controls {
+     display: inline-block;
+     padding: 5px 11px;
 }
-#map #infowindow-content {
-    display: inline;
+ .days-controls label {
+     font-family: "Open+Sans", sans-serif;
+     font-size: 13px;
+     font-weight: 300;
 }
-#days-container {
-    padding-bottom: 12px;
-    margin-right: 12px;
-}
-.days-controls {
-    display: inline-block;
-    padding: 5px 11px;
-}
-.days-controls label {
-    font-family: "Open+Sans", sans-serif;
-    font-size: 13px;
-    font-weight: 300;
-}
-#days-input {
-    background-color: #fff;
-    font-family: "Open+Sans", sans-serif;
-    font-size: 15px;
-    font-weight: 300;
-    margin-left: 12px;
-    padding: 0 11px 0 13px;
-    text-overflow: ellipsis;
-    width: 200px;
-}
-#days-input:focus {
-    border-color: #7E1048;
-}
+
 /*-------------------------------Colours */
-.red {
-    color: #7E1048;
+ .red {
+     color: #7E1048;
 }
-.bg-light {
-    background-color: transparent;
+ .bg-color-light {
+     background-color: transparent;
 }
-.bg-color-map {
-    background-color: #D2E6C6;
+ .bg-color-map {
+     background-color: #D2E6C6;
 }
-.bg-color-about {
-    background: url("../img/mainPipesLg.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
+ .bg-color-about {
+  background: url("../img/mainPipesLg.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-.bg-color-form {
-    background: url("../img/mainHarpLg.jpg");
-    background-repeat: no-repeat;
-    background-size:cover;
+ .bg-color-form {
+  background: url("../img/mainHarpLg.jpg") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
-.bg-color-info {
-    background-color: #EAF3E3;
+ .bg-color-info {
+     background-color: #EAF3E3;
 }
 /*-------------------------------Special paddings/margins/text */
-p {
-    font-family: "Open+Sans", sans-serif;
-    font-size: .85em;
+ p {
+     font-family: "Open+Sans", sans-serif;
+     font-size: .85em;
 }
-h1, h2, h3, h4 {
-    color: #7E1048;
-    margin: 0;
+ h1, h2, h3, h4 {
+     color: #7E1048;
+     margin: 0;
 }
-.selection {
-    padding-top: 15px;
+ .selection {
+     padding-top: 15px;
 }
-.uppercase {
-    text-transform: uppercase;
+ .uppercase {
+     text-transform: uppercase;
 }
-.general-sub {
-    font-family: "Open+Sans", sans-serif;
-    font-weight: 300;
-    color: #fafafa;
+ .inline-block {
+     display: inline-block;
 }
-.inline-block {
-    display: inline-block;
+ .row-table {
+     display: table;
 }
-.row-table {
-    display: table;
+ .section-column {
+     display: table-cell;
+     padding: 0;
+     float: none;
 }
-.section-column {
-    display: table-cell;
-    padding: 0;
-    float: none;
-}
-.padding30 {
-	padding: 30px;
+ .padding30 {
+     padding: 30px;
 }
 /*-------------------------------Pub Info */
-.pub-name {
-    font-size: 1.25em;
-    font-weight: 700;
-    color: #7E1048;
-    padding-top: 15px;
-    padding-bottom: 15px;
+ .pub-name {
+     font-size: 1.25em;
+     font-weight: 700;
+     color: #7E1048;
+     padding-top: 15px;
+     padding-bottom: 15px;
 }
-.pub-info-item {
-    margin-bottom: 5px;
+ .pub-info-item {
+     margin-bottom: 5px;
 }
 /*-------------------------------Contact Form */
-.contact-heading {
-    font-family: "Open+Sans", sans-serif;
-    font-weight: 300;
-    margin-top: 25px;
-    margin-bottom: 20px;
+ .contact-heading {
+     font-family: "Open+Sans", sans-serif;
+     font-weight: 300;
+     margin-top: 25px;
+     margin-bottom: 20px;
 }
-.center-form {
-    padding-top: 10px;
-    margin: 0 auto;
-    max-width: 70%;
+ .center-form {
+     padding-top: 10px;
+     margin: 0 auto;
+     max-width: 70%;
 }
-button[type="submit"] {
-    margin-top: 15px;
-    margin-bottom: 20px;
-    color: #fafafa;
-    background-color: #e84610;
+ button[type="submit"] {
+     margin-top: 15px;
+     margin-bottom: 20px;
+     color: #fafafa;
+     background-color: #7E1048;
 }
 /*-------------------------------Media queries */
-@media(min-width: 992px) {
-    .center-form {
-        padding-top: 30px;
-        min-height: 240px;
-        margin: 0 auto;
-        max-width: 50%;
+ @media(min-width: 992px) {
+     .center-form {
+         padding-top: 30px;
+         min-height: 240px;
+         margin: 0 auto;
+         max-width: 50%;
     }
 }
