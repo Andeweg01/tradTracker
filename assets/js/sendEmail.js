@@ -1,10 +1,10 @@
 // JavaScript Document
 
 function sendMail(contactForm){
-    emailjs.send("gmail", "rosie", {
+    emailjs.send("gmail", "corktradtracker", {
         "from_name": contactForm.name.value,
-        "from_email": contactForm.emailaddress.value,
-        "project_request": contactForm.projectsummary.value
+        "from_email": contactForm.email.value,
+        "my_request": contactForm.request.value
     })
     .then(
         function(response){

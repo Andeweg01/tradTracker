@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link rel="stylesheet" href="assets/css/style.css" />
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("user_1Mw8aRxDykWwhUT5tkfTK");
+        })();
+    </script>
+
 </head>
 
 <body class="bg-color-form">
@@ -45,7 +53,7 @@
                 </div>
 
             </div>
-            <div class="col-md-9 bg-color-form">
+            <div class="col-md-9">
                 <section class="container-fluid">
                     <div class="row">
                         <div class="col">
@@ -53,9 +61,9 @@
                             <div class="center-form">
                                 <form id="contact-form" onsubmit="return sendMail(this);">
                                     <input type="hidden" name="contact-number">
-                                    <input type="text" name="user_name" id="name" class="form-control" placeholder="Name" required />
-                                    <input type="email" name="user_email" id="emailaddress" class="form-control" placeholder="Email" required />
-                                    <textarea rows="5" name="message" id="projectsummary" class="form-control" placeholder="Your request" required></textarea>
+                                    <input type="text" name="name" id="name" class="form-control" placeholder="Name" required />
+                                    <input type="email" name="email" id="emailaddress" class="form-control" placeholder="Email" required />
+                                    <textarea rows="5" name="request" id="request" class="form-control" placeholder="My Request" required></textarea>
                                     <div class="form-row text-center">
                                         <div class="col">
                                             <button type="submit" class="btn btn-secondary">Send Request</button>
@@ -69,6 +77,7 @@
             </div>
         </div>
     </section>
+    <script src="assets/js/sendEmail.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
