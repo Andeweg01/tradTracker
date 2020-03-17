@@ -49,17 +49,24 @@ A few examples of how this site can benefit users:
 A person like myself might feel like enjoying a night out with good traditional Irish music. 
 Visiting cork.tradtracker.com will show the map of Cork with markers where the music is on.
 The required day can be selected and the locations are filtered on the day that sessions are on.
+Zooming in to the marker will make it possible to click the location and move on to Google Maps,
+showing more information and all the options Google Maps offers.
 
 ### Tourist:
 
 Many tourists in Ireland consider being in a pub with trad music the ultimate experience on their holidays. 
 It could require asking around, surfing the web for scattered information and a bit of luck to find this hidden gem. 
-With cork.tradtracker.com the information is there for them. Pick a location and it'll show them where to go for a guaranteed good Irish night out.
+With cork.tradtracker.com the information is there for them. Again, go to cork.tradtracker.com, 
+the required day can be selected and the locations are filtered on the day that sessions are on.
+Zooming in to the marker will make it possible to click the location and move on to Google Maps,
+showing more information and all the options Google Maps offers, like generating a route. 
+It'll show them where to go for a guaranteed good Irish night out.
 
 ### Pub owners:
 
 Having locations of one's pub on a map showing their regular trad sessions can generate extra revenue by attracting more customers.
 Also the organiser of sessions can plan more effectively when he's up-to-date with the days that other pubs have their sessions.
+The venue owner can go to cork.tradtracker.com, find the form, fill it in and send. TradTracker.com does the rest for them.
 
 
 ## FEATURES
